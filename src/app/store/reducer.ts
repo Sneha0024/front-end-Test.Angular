@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { CreditCardState } from '../models/credit-card.interface';
-import * as creditCardPaymentActions from './actions';
+import * as creditCardPaymentActions from './action';
 // import { creditCardPaymentAdapter, initialState, State } from './state';
 
 export const featureKey = 'creditCard';
