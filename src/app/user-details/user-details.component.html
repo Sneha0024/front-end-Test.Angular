@@ -3,29 +3,6 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<label for="firstName">First Name</label>
-        <input
-         required 
-         minlength="3" 
-         maxlength="10" 
-         pattern="apple"
-         ngModel name="firstName"
-        id="firstName" 
-        #firstName="ngModel" 
-        (change)="log(firstName)" 
-        id="firstName" 
-        type="text" 
-        class="form-control">
-        <div class="alert alert-danger"
-        *ngIf="firstName.touched && !firstName.valid">
-        <div *ngIf="firstName.errors.required">
-            First Name is required</div>
-    <div *ngIf="firstName.errors.minlength">
-        First name should be minimum 3 characters.</div>
-    <div *ngIf="firstName.errors.pattern">
-        First name doesn't match the pattern.</div>
-    </div>
-</div>
 <div class="container">
   <form class="form-horizontal" role="form" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
     <fieldset>
