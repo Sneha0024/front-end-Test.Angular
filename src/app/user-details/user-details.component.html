@@ -1,0 +1,96 @@
+
+
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<label for="firstName">First Name</label>
+        <input
+         required 
+         minlength="3" 
+         maxlength="10" 
+         pattern="apple"
+         ngModel name="firstName"
+        id="firstName" 
+        #firstName="ngModel" 
+        (change)="log(firstName)" 
+        id="firstName" 
+        type="text" 
+        class="form-control">
+        <div class="alert alert-danger"
+        *ngIf="firstName.touched && !firstName.valid">
+        <div *ngIf="firstName.errors.required">
+            First Name is required</div>
+    <div *ngIf="firstName.errors.minlength">
+        First name should be minimum 3 characters.</div>
+    <div *ngIf="firstName.errors.pattern">
+        First name doesn't match the pattern.</div>
+    </div>
+</div>
+<div class="container">
+  <form class="form-horizontal" role="form" [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+    <fieldset>
+      <legend>User Details</legend>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" 
+        for="last-name">First Name</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="text" 
+          formControlName="first-name" placeholder="Mark" 
+          [ngClass]="{ 'is-invalid': (formControls.nameOnCard.dirty
+           || formControls.first-name.touched) && formControls.first-name.errors }">
+          <div *ngIf="!formControls.first-name.valid && (formControls.first-name.dirty || formControls.first-name.touched)" class="invalid-feedback">
+              <div *ngIf="formControls.first-name.errors" class="alert alert-danger">Invalid First Name.</div>
+          </div>
+          </div>
+      </div>
+  
+      <div class="form-group">
+        <label class="col-sm-3 control-label" 
+        for="last-name">Last Name</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="text" 
+          formControlName="last-name" placeholder="Krane" 
+          [ngClass]="{ 'is-invalid': (formControls.nameOnCard.dirty
+           || formControls.last-name.touched) && formControls.last-name.errors }">
+          <div *ngIf="!formControls.last-name.valid && (formControls.last-name.dirty || formControls.last-name.touched)" class="invalid-feedback">
+              <div *ngIf="formControls.last-name.errors" class="alert alert-danger">Invalid Last Name.</div>
+          </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="email">Email</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="email" formControlName="email" [ngClass]="{ 'is-invalid': (formControls.email.dirty || formControls.email.touched) && formControls.email.errors }">
+          <div *ngIf="!formControls.email.valid && (formControls.email.dirty || formControls.email.touched)" class="invalid-feedback">
+          <div *ngIf="formControls.email.errors" class="alert alert-danger">Invalid Email</div>
+          </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="Budget">Monthly Advertising Budget</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="number" formControlName="Budget" [ngClass]="{ 'is-invalid': formControls.Budget.errors  && (formControls.cardNumber.dirty || formControls.cardNumber.touched)}">
+          <div *ngIf="!formControls.Budget.valid && (formControls.Budget.dirty || formControls.Budget.touched)" class="invalid-feedback">
+              <div *ngIf="formControls.Budget.errors" class="alert alert-danger">Invalid Budget.</div>
+          </div>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="col-sm-3 control-label" for="phoneNumber">Phone Number</label>
+        <div class="col-sm-9">
+          <input class="form-control" type="number" formControlName="phoneNumber" [ngClass]="{ 'is-invalid': formControls.phoneNumber.errors  && (formControls.phoneNumber.dirty || formControls.phoneNumber.touched)}">
+          <div *ngIf="!formControls.phoneNumber.valid && (formControls.phoneNumber.dirty || formControls.phoneNumber.touched)" class="invalid-feedback">
+              <div *ngIf="formControls.phoneNumber.errors" class="alert alert-danger">Invalid Phone Number.</div>
+          </div>
+          </div>
+      </div>
+<div class="form-group">
+        <div class="col-sm-offset-3 col-sm-9">
+          <button type="submit" class="btn btn btn-success">Proceed</button>
+        </div>
+      </div>
+    </fieldset>
+      <div *ngIf="paymentForm.invalid" class="alert alert-danger">{{errorMessage}}</div>
+  </form>
+</div>
+   
