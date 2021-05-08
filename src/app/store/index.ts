@@ -1,4 +1,4 @@
-import * as fromCreditCardPaymentStoreActions from './actions';
+import * as fromCreditCardPaymentStoreActions from './action';
 import * as fromCreditCardPaymentStoreEffects from './effects';
 import * as fromCreditCardPaymentStoreSelectors from './selectors';
 import * as fromCreditCardPaymentStoreReducer from './reducer';
